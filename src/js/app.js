@@ -2,10 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import createReactClass from 'create-react-class';
 import style from './../scss/all.scss';
+
 import Header from './../js/todoList/header.js';
 import Form from './../js/todoList/form.js';
 import SearchList from './../js/todoList/listitem.js';
-import { BrowserRouter } from 'react-router-dom'
+
+import Homepage from './../js/router/homepage.js';
+import Contact from './../js/router/contact.js';
+
+import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
 class App extends React.Component {
     constructor(props){
@@ -21,6 +27,18 @@ class App extends React.Component {
             <Header name= {'myTodoApp'}/>
             <Form getInputInfo = {this.handleChange}></Form>
             <SearchList mylist={this.state.text} deleteItem = {this.deleteItem} updateItem={this.updateList}></SearchList>
+            
+            <Router>
+            <div>
+                <ul>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/contact">contact</Link></li>
+                </ul>
+           
+              <Route exact path="/" component={Homepage}/>
+              <Route exact path="/contact" component={Contact}/>
+            </div>
+            </Router>
         </div>
         );
     }
