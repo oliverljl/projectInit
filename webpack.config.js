@@ -5,7 +5,8 @@ module.exports = {
     entry: './src/js/app.js',
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: 'js/interaction-checker.bundle.js'
+        filename: 'js/interaction-checker.bundle.js',
+        publicPath: '/'
     },
     module: {
         loaders: [
@@ -26,6 +27,9 @@ module.exports = {
             }
         
         ]
+    },
+    devServer:{
+        historyApiFallback :true
     },
     plugins: [
         new ExtractTextPlugin({

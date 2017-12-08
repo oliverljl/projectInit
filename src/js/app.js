@@ -9,9 +9,12 @@ import SearchList from './../js/todoList/listitem.js';
 
 import Homepage from './../js/router/homepage.js';
 import Contact from './../js/router/contact.js';
+import Notfound from './../js/router/notfound.js';
+import User from './../js/router/subprod.js';
+import Product from './../js/router/subuser.js';
 
 import { BrowserRouter } from 'react-router-dom';
-import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link,Switch} from 'react-router-dom';
 
 class App extends React.Component {
     constructor(props){
@@ -34,9 +37,13 @@ class App extends React.Component {
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/contact">contact</Link></li>
                 </ul>
-           
+            <Switch>
               <Route exact path="/" component={Homepage}/>
-              <Route exact path="/contact" component={Contact}/>
+              <Route path="/contact" component={Contact}/>
+              <Route path="*" component={Notfound} />
+              <Route path='/contact/:prod' component={Product}/>
+                <Route path = '/contact/:user' component={User}/>
+            </Switch>
             </div>
             </Router>
         </div>
