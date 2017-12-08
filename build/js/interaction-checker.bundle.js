@@ -10702,6 +10702,7 @@ var Contact = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
+            console.log(this.props.match);
             return _react2.default.createElement(
                 'div',
                 null,
@@ -10716,8 +10717,8 @@ var Contact = function (_React$Component) {
                     _react2.default.createElement(
                         _reactRouterDom.Switch,
                         null,
-                        _react2.default.createElement(_reactRouterDom.Route, { path: '/contact/prod', component: _subprod2.default }),
-                        _react2.default.createElement(_reactRouterDom.Route, { path: '/contact/user', component: _subuser2.default })
+                        _react2.default.createElement(_reactRouterDom.Route, { path: this.props.match.path, component: _subprod2.default }),
+                        _react2.default.createElement(_reactRouterDom.Route, { path: '{this.props.match.path}/:user', component: _subuser2.default })
                     )
                 )
             );

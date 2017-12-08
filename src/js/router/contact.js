@@ -6,19 +6,19 @@ import User from './subuser.js'
 export default class Contact extends React.Component{
     constructor(props){
         super(props)
-
     }
     componentDidMount(){
-
+    
     }
     render(){
+
         return(
             <div>
             <p>Contact! emergency! Reach Me!!!</p>
             <Router>
             <Switch>
-                <Route path='/contact/prod' component={Product}/>
-                <Route path = '/contact/user' component={User}/>
+                <Route path={this.props.match.path} component={Product}/>
+                <Route path = {`${this.props.match.path}/:userId`} component={User}/>
             </Switch>
             </Router>
             </div>
